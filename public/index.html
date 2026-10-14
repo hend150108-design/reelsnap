@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ReelSnap - Unduh video Instagram Reels publik dengan mudah, cepat, dan kualitas HD. Tanpa registrasi, tanpa login, dan gratis digunakan." />
+  <meta name="keywords" content="download instagram reels, unduh ig reels, instagram reels downloader, reels mp4 download, reelsnap" />
+  <meta name="author" content="ReelSnap" />
+  <meta name="theme-color" content="#833ab4" />
+
+  <!-- Open Graph / SEO -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ReelSnap — Download Instagram Reels dengan Mudah" />
+  <meta property="og:description" content="Simpan video Reels favorit Anda untuk ditonton kembali secara offline. Cepat, praktis, dan mudah digunakan." />
+  <meta property="og:image" content="/assets/logo.svg" />
+
+  <title>ReelSnap — Download Instagram Reels dengan Mudah</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" aria-label="ReelSnap Beranda">
+        <img src="/assets/logo.svg" alt="ReelSnap Logo" width="36" height="36" class="logo-img" />
+        <span class="brand-text">Reel<span class="gradient-text">Snap</span></span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Navigasi Utama">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Beranda</a></li>
+          <li><a href="#how-to-use" class="nav-link">Cara Menggunakan</a></li>
+          <li><a href="#features" class="nav-link">Fitur</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Theme Toggle, Settings & Mobile Menu) -->
+      <div class="nav-actions">
+        <!-- Cookie Settings Button -->
+        <button id="settings-btn" class="icon-btn settings-btn" aria-label="Pengaturan Cookie Instagram" title="Pengaturan Cookie Instagram">
+          <i data-lucide="settings"></i>
+          <span class="cookie-status-dot" id="cookie-status-dot" title="Cookie status"></span>
+        </button>
+
+        <!-- Dark / Light Mode Toggle Button -->
+        <button id="theme-toggle-btn" class="icon-btn theme-toggle" aria-label="Ganti Tema Gelap / Terang" title="Ganti Tema">
+          <i data-lucide="moon" class="theme-icon-dark"></i>
+          <i data-lucide="sun" class="theme-icon-light"></i>
+        </button>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="mobile-menu-btn" class="icon-btn mobile-menu-btn" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <i data-lucide="menu" class="hamburger-icon"></i>
+          <i data-lucide="x" class="close-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+      <ul class="mobile-nav-links">
+        <li><a href="#hero" class="mobile-nav-link">Beranda</a></li>
+        <li><a href="#how-to-use" class="mobile-nav-link">Cara Menggunakan</a></li>
+        <li><a href="#features" class="mobile-nav-link">Fitur Unggulan</a></li>
+        <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <p class="mobile-tagline">ReelSnap — Solusi Cepat Simpan Instagram Reels</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-bg-glow"></div>
+      <div class="container hero-container">
+        <!-- Hero Badge -->
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <i data-lucide="sparkles" class="badge-icon"></i>
+          <span>Instagram Reels Downloader Modern</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="hero-title">
+          Download Instagram Reels dengan <span class="gradient-text">Mudah</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="hero-description">
+          Simpan video Reels favorit Anda untuk ditonton kembali secara offline. Cepat, praktis, dan mudah digunakan.
+        </p>
+
+        <!-- Downloader Form Card -->
+        <div class="downloader-card" id="downloader-card">
+          <form id="reels-form" class="reels-form" novalidate>
+            <div class="input-wrapper">
+              <div class="input-icon-box">
+                <i data-lucide="instagram" class="input-icon"></i>
+              </div>
+              <input
+                type="url"
+                id="url-input"
+                name="url"
+                class="reels-input"
+                placeholder="Tempel tautan Instagram Reels di sini..."
+                autocomplete="off"
+                spellcheck="false"
+                required
+              />
+              <button type="button" id="clear-btn" class="clear-btn" aria-label="Hapus Teks" style="display: none;">
+                <i data-lucide="x-circle"></i>
+              </button>
+              <button type="button" id="paste-btn" class="paste-btn" title="Tempel dari Clipboard">
+                <i data-lucide="clipboard-paste"></i>
+                <span class="paste-text">Paste</span>
+              </button>
+            </div>
+
+            <button type="submit" id="submit-btn" class="submit-btn">
+              <span class="btn-text">Download</span>
+              <i data-lucide="arrow-down-to-line" class="btn-icon"></i>
+            </button>
+          </form>
+
+          <!-- Input Format Hints & Quick Actions -->
+          <div class="supported-formats">
+            <span class="format-label"><i data-lucide="check-circle-2" class="mini-icon"></i> Format:</span>
+            <span class="format-tag">Reels (/reel/...)</span>
+            <span class="format-tag">Foto & Post (/p/...)</span>
+          </div>
+
+          <!-- Quick Connection Status -->
+          <div class="connection-status-bar">
+            <button type="button" id="cookie-pill-btn" class="cookie-pill-btn" title="Pengaturan koneksi akun Instagram">
+              <i data-lucide="shield-check" class="mini-icon"></i> <span id="cookie-pill-label">Status Koneksi: Memeriksa...</span>
+            </button>
+          </div>
+
+          <!-- Legal & Compliance Notice -->
+          <p class="disclaimer-note">
+            <i data-lucide="shield-alert" class="notice-icon"></i>
+            Gunakan hanya untuk konten yang Anda miliki atau yang pemiliknya mengizinkan untuk diunduh.
+          </p>
+        </div>
+
+        <!-- Results Dynamic Section -->
+        <section id="results-container" class="results-container" aria-live="polite">
+          <!-- Loading State -->
+          <div id="loading-state" class="state-card loading-state" style="display: none;">
+            <div class="loader-spinner">
+              <div class="spinner-ring"></div>
+              <i data-lucide="loader-2" class="spinner-icon"></i>
+            </div>
+            <h3 class="state-title" id="loading-title">Memproses Tautan Instagram...</h3>
+            <p class="state-desc" id="loading-desc">Menghubungi server Instagram dan mengambil data media publik.</p>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+
+          <!-- Error State -->
+          <div id="error-state" class="state-card error-state" style="display: none;">
+            <div class="state-icon-box error-icon-box">
+              <i data-lucide="alert-triangle"></i>
+            </div>
+            <h3 class="state-title">Tidak Dapat Mengunduh Konten</h3>
+            <p class="state-desc" id="error-message">Terjadi kesalahan saat memproses tautan.</p>
+            <div class="error-tips">
+              <strong>Solusi &amp; Tips:</strong>
+              <ul>
+                <li><strong>Instagram membatasi akses tanpa login:</strong> Masukkan Cookie / Session ID akun Anda agar server bisa mengekstrak video &amp; foto secara nyata.</li>
+                <li>Pastikan video/foto berasal dari <strong>akun publik</strong> (bukan akun privat/terkunci).</li>
+                <li>Periksa kembali apakah tautan URL disalin dengan lengkap dari aplikasi Instagram.</li>
+              </ul>
+            </div>
+            <div class="error-actions-group">
+              <button type="button" class="action-btn cookie-cta-btn" id="error-cookie-btn">
+                <i data-lucide="key-round"></i> Masukkan Cookie Akun (1 Menit)
+              </button>
+              <button type="button" class="retry-btn" id="retry-btn">
+                <i data-lucide="refresh-cw"></i> Coba Lagi
+              </button>
+            </div>
+          </div>
+
+          <!-- Success Result State -->
+          <div id="success-state" class="state-card success-state" style="display: none;">
+            <div class="success-header">
+              <div class="success-badge">
+                <i data-lucide="check-circle" class="badge-mini-icon"></i>
+                <span id="success-badge-text">Konten Siap Diunduh</span>
+              </div>
+              <span class="media-quality-badge" id="media-quality-badge">MP4 • HD Original</span>
+            </div>
+
+            <div class="result-grid">
+              <!-- Video / Photo Preview Area -->
+              <div class="video-preview-wrapper" id="video-preview-wrapper">
+                <!-- Video Element -->
+                <video
+                  id="result-video-player"
+                  class="result-video"
+                  controls
+                  playsinline
+                  preload="metadata"
+                >
+                  <p>Browser Anda tidak mendukung pemutar video HTML5.</p>
+                </video>
+
+                <!-- Photo Element (for Instagram Photos) -->
+                <div id="photo-preview-box" class="photo-preview-box" style="display: none;">
+                  <img id="result-photo-img" src="" alt="Instagram Photo Preview" class="result-photo" />
+                </div>
+
+                <!-- Thumbnail Fallback -->
+                <div id="video-thumbnail-fallback" class="thumbnail-fallback" style="display: none;">
+                  <img id="result-thumbnail-img" src="" alt="Thumbnail Video Reels" />
+                  <div class="play-overlay">
+                    <i data-lucide="play-circle"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Media Details & Actions -->
+              <div class="result-details">
+                <!-- Creator Info -->
+                <div class="creator-card">
+                  <div class="creator-avatar" id="creator-avatar-box">
+                    <i data-lucide="user"></i>
+                  </div>
+                  <div class="creator-info">
+                    <span class="creator-handle" id="creator-username">@instagram_user</span>
+                    <span class="creator-name" id="creator-fullname">Kreator Instagram</span>
+                  </div>
+                </div>
+
+                <!-- Video Caption -->
+                <div class="caption-box">
+                  <h4 class="caption-heading">Deskripsi Video:</h4>
+                  <p class="caption-text" id="video-caption-text">Tidak ada caption.</p>
+                </div>
+
+                <!-- Meta Badges (Duration, Likes) -->
+                <div class="meta-badges" id="meta-badges">
+                  <div class="meta-item" id="badge-duration" style="display: none;">
+                    <i data-lucide="clock"></i>
+                    <span id="duration-val">-</span>
+                  </div>
+                  <div class="meta-item" id="badge-likes" style="display: none;">
+                    <i data-lucide="heart"></i>
+                    <span id="likes-val">-</span>
+                  </div>
+                  <div class="meta-item">
+                    <i data-lucide="file-video" id="format-badge-icon"></i>
+                    <span id="format-val">Format MP4</span>
+                  </div>
+                </div>
+
+                <!-- Action Download Buttons -->
+                <div class="action-buttons-group">
+                  <a
+                    id="real-download-btn"
+                    href="#"
+                    class="action-btn primary-download-btn"
+                    download="reelsnap-media.mp4"
+                  >
+                    <i data-lucide="download"></i>
+                    <span id="download-btn-label">Unduh Video (.MP4)</span>
+                  </a>
+
+                  <div class="secondary-actions">
+                    <a
+                      id="download-cover-btn"
+                      href="#"
+                      class="action-btn secondary-btn"
+                      title="Unduh Cover Foto (.JPG)"
+                      style="display: none;"
+                      download="reelsnap-cover.jpg"
+                    >
+                      <i data-lucide="image"></i>
+                      <span>Unduh Cover</span>
+                    </a>
+                    <button type="button" id="copy-video-link-btn" class="action-btn secondary-btn" title="Salin Tautan Video">
+                      <i data-lucide="copy"></i>
+                      <span>Salin Link</span>
+                    </button>
+                    <button type="button" id="reset-result-btn" class="action-btn secondary-btn" title="Unduh Video Lain">
+                      <i data-lucide="plus-circle"></i>
+                      <span>Unduh Lainnya</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Section: Cara Menggunakan -->
+    <section id="how-to-use" class="section how-to-use-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i data-lucide="help-circle"></i> Panduan
+          </div>
+          <h2 class="section-title">Cara Menggunakan ReelSnap</h2>
+          <p class="section-subtitle">Tiga langkah mudah untuk mengunduh video Instagram Reels langsung ke perangkat Anda.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number-badge">1</div>
+            <div class="step-icon-wrap">
+              <i data-lucide="copy"></i>
+            </div>
+            <h3 class="step-title">Salin Tautan Reels</h3>
+            <p class="step-desc">
+              Buka aplikasi Instagram atau web browser Anda. Cari video Reels yang diizinkan untuk diunduh, klik ikon <strong>Bagikan</strong> (Share), lalu pilih <strong>Salin Tautan</strong> (Copy Link).
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number-badge">2</div>
+            <div class="step-icon-wrap">
+              <i data-lucide="link"></i>
+            </div>
+            <h3 class="step-title">Tempelkan Tautan</h3>
+            <p class="step-desc">
+              Buka website <strong>ReelSnap</strong>, klik tombol <strong>Paste</strong> atau tempel URL tautan Reels ke kolom input yang tersedia di bagian atas halaman.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number-badge">3</div>
+            <div class="step-icon-wrap">
+              <i data-lucide="download-cloud"></i>
+            </div>
+            <h3 class="step-title">Klik Download & Simpan</h3>
+            <p class="step-desc">
+              Klik tombol <strong>Download</strong>. Setelah data video selesai diproses dan siap, klik <strong>Unduh Video (.MP4)</strong> untuk menyimpan video ke memori HP atau komputer Anda.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Fitur Unggulan -->
+    <section id="features" class="section features-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i data-lucide="zap"></i> Keunggulan
+          </div>
+          <h2 class="section-title">Fitur Unggulan ReelSnap</h2>
+          <p class="section-subtitle">Dirancang untuk memberikan pengalaman pengunduhan yang efisien dan tanpa hambatan.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i data-lucide="smile"></i>
+            </div>
+            <h3 class="feature-title">Mudah Digunakan</h3>
+            <p class="feature-desc">
+              Antarmuka yang bersih dan intuitif membuat proses pengunduhan video Reels hanya memerlukan satu klik tanpa langkah berbelit-belit.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i data-lucide="smartphone"></i>
+            </div>
+            <h3 class="feature-title">Responsif di Semua Perangkat</h3>
+            <p class="feature-desc">
+              Dapat diakses lancar melalui browser ponsel Android, iPhone, iPad, tablet, laptop, maupun komputer desktop dengan tata letak optimal.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <h3 class="feature-title">Pemrosesan Tautan</h3>
+            <p class="feature-desc">
+              Sistem backend Express.js memvalidasi domain Instagram secara ketat serta melindungi pengguna dari tautan mencurigakan atau serangan SSRF.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i data-lucide="user-x"></i>
+            </div>
+            <h3 class="feature-title">Tanpa Registrasi</h3>
+            <p class="feature-desc">
+              Tidak membutuhkan pendaftaran akun, pembuatan username, ataupun kata sandi. Cukup tempelkan tautan yang ingin diunduh kapan saja.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: FAQ Accordion -->
+    <section id="faq" class="section faq-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i data-lucide="message-circle-question"></i> Tanya Jawab
+          </div>
+          <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
+          <p class="section-subtitle">Jawaban jujur dan transparan mengenai layanan pengunduhan Instagram Reels.</p>
+        </div>
+
+        <div class="faq-accordion-list" id="faq-accordion">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-text">Bagaimana cara mengunduh Instagram Reels?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Cukup salin tautan URL video Reels dari aplikasi Instagram (melalui menu Bagikan &gt; Salin Tautan), lalu tempelkan ke kolom input di ReelSnap dan klik tombol <strong>Download</strong>. Setelah video berhasil diproses, klik tombol <strong>Unduh Video (.MP4)</strong>.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-text">Apakah website dapat digunakan di HP?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Ya, tentu saja. ReelSnap didesain sepenuhnya responsif untuk smartphone (Android melalui Chrome/Firefox, dan iOS iPhone melalui Safari). Anda tidak perlu menginstal aplikasi pihak ketiga apa pun.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-text">Mengapa tautan tertentu tidak bisa diproses?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Tautan mungkin tidak dapat diproses jika video berasal dari <strong>akun privat (private account)</strong>, video telah dihapus oleh pemiliknya, video memiliki pembatasan usia/wilayah geolokasi, atau Instagram membatasi akses sementara ke endpoint publik tersebut.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-text">Apakah semua video Instagram bisa diunduh?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Tidak. ReelSnap hanya memproses video Instagram Reels publik yang dapat diakses secara terbuka dan diizinkan oleh pemegang hak cipta untuk diunduh. ReelSnap tidak membypass proteksi akun privat, hak cipta DRM, atau autentikasi login pengguna.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-text">Apakah saya perlu login ke Instagram?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <strong>Tidak perlu sama sekali.</strong> ReelSnap tidak pernah meminta username, kata sandi, ataupun cookie akun Instagram Anda. Anda dapat mengunduh konten publik dengan aman tanpa risiko kebocoran akun.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo" aria-label="ReelSnap Beranda">
+            <img src="/assets/logo.svg" alt="ReelSnap Logo" width="32" height="32" class="logo-img" />
+            <span class="brand-text">Reel<span class="gradient-text">Snap</span></span>
+          </a>
+          <p class="footer-tagline">
+            Layanan modern untuk menyimpan video Instagram Reels publik dengan cepat, aman, dan mudah.
+          </p>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-col-title">Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#how-to-use">Cara Menggunakan</a></li>
+            <li><a href="#features">Fitur Unggulan</a></li>
+            <li><a href="#faq">Pertanyaan Umum</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-col-title">Hukum & Privasi</h4>
+          <ul class="footer-links">
+            <li><button type="button" class="footer-link-btn" id="privacy-policy-btn">Kebijakan Privasi</button></li>
+            <li><button type="button" class="footer-link-btn" id="terms-of-service-btn">Ketentuan Penggunaan</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; <span id="current-year">2026</span> <strong>ReelSnap</strong>. Hak Cipta Dilindungi.
+        </p>
+        <p class="meta-disclaimer">
+          <strong>Pemberitahuan:</strong> ReelSnap adalah proyek independen dan tidak berafiliasi, didukung, disponsori, atau secara resmi berhubungan dengan Instagram atau Meta Platforms, Inc.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Kebijakan Privasi -->
+  <div id="privacy-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-labelledby="privacy-modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="privacy-modal-title" class="modal-title">Kebijakan Privasi</h3>
+        <button type="button" class="modal-close-btn" data-close-modal="privacy-modal" aria-label="Tutup Modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>1. Tidak Ada Penyimpanan Data Pengguna</h4>
+        <p>ReelSnap tidak mewajibkan pendaftaran pengguna, tidak mengumpulkan data pribadi (nama, email, kata sandi), dan tidak melacak riwayat pribadi pengunduhan Anda.</p>
+        <h4>2. Pemrosesan Tautan Sementara</h4>
+        <p>Tautan URL yang Anda masukkan ke ReelSnap hanya diproses secara instan di memori sementara (RAM) untuk mengambil sumber video publik. Kami tidak menyimpan video pengguna secara permanen di server kami.</p>
+        <h4>3. Keamanan & Log Server</h4>
+        <p>Kami menerapkan pembatasan request (rate limiting) dan perlindungan SSRF untuk mencegah penyalahgunaan infrastruktur. Log server hanya menyimpan informasi teknis umum (seperti kode status HTTP) untuk keperluan diagnostik.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="action-btn secondary-btn" data-close-modal="privacy-modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Ketentuan Penggunaan -->
+  <div id="terms-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-labelledby="terms-modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="terms-modal-title" class="modal-title">Ketentuan Penggunaan</h3>
+        <button type="button" class="modal-close-btn" data-close-modal="terms-modal" aria-label="Tutup Modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>1. Penggunaan yang Sah</h4>
+        <p>Layanan ReelSnap hanya boleh digunakan untuk mengunduh konten video publik yang Anda miliki atau yang Anda telah memperoleh izin sah dari pemilik hak cipta untuk menyimpannya untuk keperluan pribadi dan offline.</p>
+        <h4>2. Larangan Penyalahgunaan</h4>
+        <p>Dilarang keras menyalahgunakan layanan ini untuk mendistribusikan ulang karya orang lain tanpa izin, melanggar hak cipta, melakukan spamming, atau mencoba membobol sistem keamanan server.</p>
+        <h4>3. Keterbatasan Tanggung Jawab</h4>
+        <p>ReelSnap disediakan "sebagaimana adanya" (as-is). Kami tidak berafiliasi dengan Instagram atau Meta Platforms, Inc. Seluruh tanggung jawab atas pemanfaatan video yang diunduh berada sepenuhnya pada pengguna.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="action-btn secondary-btn" data-close-modal="terms-modal">Saya Mengerti</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Pengaturan Cookie Instagram -->
+  <div id="cookie-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-labelledby="cookie-modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <i data-lucide="key-round" class="modal-title-icon"></i>
+          <h3 id="cookie-modal-title" class="modal-title">Pengaturan Cookie Instagram</h3>
+        </div>
+        <button type="button" class="modal-close-btn" data-close-modal="cookie-modal" aria-label="Tutup Modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="cookie-notice-banner">
+          <i data-lucide="info"></i>
+          <p>Instagram memblokir server otomatis tanpa sesi login. Memasukkan <strong>sessionid</strong> akun Anda memungkinkan ReelSnap mengekstrak video Reels dan Foto asli langsung dari CDN Instagram.</p>
+        </div>
+
+        <div class="cookie-status-row">
+          <span class="status-title">Status Koneksi:</span>
+          <span class="status-tag status-offline" id="cookie-status-tag">Belum Terpasang</span>
+        </div>
+
+        <form id="cookie-config-form" class="cookie-config-form">
+          <label for="cookie-input-field" class="cookie-field-label">Tempel Nilai Session ID / Cookie:</label>
+          <textarea
+            id="cookie-input-field"
+            class="cookie-textarea"
+            rows="3"
+            placeholder="Contoh: 68291823%3AnU7B... atau sessionid=68291823%3AnU7B...; ds_user_id=...;"
+            spellcheck="false"
+          ></textarea>
+
+          <!-- Accordion Panduan Cepat -->
+          <div class="guide-box">
+            <button type="button" class="guide-toggle-btn" id="toggle-guide-btn">
+              <span class="guide-toggle-left">
+                <i data-lucide="help-circle"></i>
+                <span>Cara Mengambil Session ID (Sangat Mudah - 30 Detik)</span>
+              </span>
+              <i data-lucide="chevron-down" id="guide-chevron" class="guide-chevron"></i>
+            </button>
+            <div class="guide-steps-body" id="guide-steps-body" style="display: block;">
+              <div class="guide-important-alert">
+                <i data-lucide="alert-circle" class="alert-icon"></i>
+                <div class="alert-content">
+                  <strong>⚠️ PENTING AGAR DAFTAR COOKIE TIDAK KOSONG:</strong>
+                  <p>Pastikan Anda menekan <strong>F12 saat berada di tab Instagram</strong> (tab berlogo IG di browser Anda), <u>BUKAN</u> di tab ReelSnap (localhost). Jika membuka F12 di tab ReelSnap, daftar cookie akan kosong!</p>
+                </div>
+              </div>
+              <ol class="steps-numbered">
+                <li>Klik tab <strong>Instagram</strong> (tab di sebelah ReelSnap pada browser Chrome Anda).</li>
+                <li>Tekan tombol <strong>F12</strong> pada keyboard untuk membuka menu <em>Developer Tools</em>.</li>
+                <li>Di menu atas Developer Tools, klik tab <strong>Application</strong> (jika tidak terlihat, klik tanda panah <code>&gt;&gt;</code> lalu pilih <em>Application</em>).</li>
+                <li>Di panel sebelah kiri, cari <strong>Storage</strong> &gt; klik <strong>Cookies</strong> &gt; pilih <strong><code>https://www.instagram.com</code></strong>.</li>
+                <li>Cari baris bernama <strong>sessionid</strong>, klik dua kali pada kolom <em>Value</em>, lalu tekan <strong>Ctrl + C</strong> (Salin).</li>
+                <li>Kembali ke tab <strong>ReelSnap</strong>, tempel nilainya ke kotak di atas, lalu klik <strong>Simpan &amp; Terapkan</strong>.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="cookie-actions-bar">
+            <button type="button" class="action-btn secondary-btn" id="remove-cookie-btn">Hapus Cookie</button>
+            <button type="submit" class="action-btn primary-btn" id="save-cookie-btn">
+              <i data-lucide="save"></i> Simpan &amp; Terapkan
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-container" role="alert" aria-live="assertive"></div>
+
+  <!-- Script -->
+  <script src="/script.js"></script>
+</body>
+</html>

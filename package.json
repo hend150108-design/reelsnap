@@ -1,0 +1,32 @@
+{
+  "name": "reelsnap",
+  "version": "1.0.0",
+  "description": "ReelSnap - Modern Instagram Reels Downloader Web Application",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js",
+    "test": "node tests/test-api.js"
+  },
+  "keywords": [
+    "instagram",
+    "reels",
+    "downloader",
+    "express",
+    "video"
+  ],
+  "author": "ReelSnap Team",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.8.0",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "instagram-url-direct": "^2.0.7",
+    "ipaddr.js": "^2.2.0"
+  }
+}

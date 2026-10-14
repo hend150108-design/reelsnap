@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <defs>
+    <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fcb045" />
+      <stop offset="35%" stop-color="#fd1d1d" />
+      <stop offset="70%" stop-color="#e1306c" />
+      <stop offset="100%" stop-color="#833ab4" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#833ab4" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#fd1d1d" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <!-- Background Glow & Rounded Container -->
+  <rect x="2" y="2" width="44" height="44" rx="14" fill="url(#igGrad)" />
+  <!-- Inner film reel / camera frame overlay -->
+  <rect x="7" y="7" width="34" height="34" rx="10" stroke="#ffffff" stroke-width="2.5" stroke-opacity="0.35" fill="none" />
+  <!-- Play Icon with snap motion -->
+  <polygon points="19,15 34,24 19,33" fill="#ffffff" />
+  <!-- Small snap spark -->
+  <circle cx="34" cy="14" r="2.5" fill="#ffffff" />
+</svg>
